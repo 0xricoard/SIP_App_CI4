@@ -19,54 +19,54 @@
         <?php
           $errors = session()->getFlashdata('errors');
           if(!empty($errors)){
-        ?>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="alert alert-danger">
-              Whoops! Ada kesalahan saat input data, yaitu:
-              <ul>
-                <?php foreach ($errors as $error) { ?>
-                <li><?php echo esc($error); ?></li>
-                <?php } ?>
-              </ul>
+            ?>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="alert alert-danger">
+                  Whoops! Ada kesalahan saat input data, yaitu:
+                  <ul>
+                    <?php foreach ($errors as $error) { ?>
+                    <li><?php echo esc($error); ?></li>
+                    <?php } ?>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <?php } ?>
-        <?php $inputs = session()->getFlashdata('inputs'); ?>
-        <?php echo form_open('/auth/proses_register'); ?>
-        <div class="input-group mb-3">
-          <?php
-            $username = [
-              'type'  => 'text',
-              'name'  => 'username',
-              'id'    => 'username',
-              'value' => $inputs['username'],
-              'class' => 'form-control',
-              'placeholder' => 'Username'
-            ];
-            echo form_input($username); 
-          ?>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+            <?php } ?>
+            <?php $inputs = session()->getFlashdata('inputs'); ?>
+            <?php echo form_open('/auth/proses_register'); ?>
+            <div class="input-group mb-3">
+              <?php
+                $username = [
+                  'type'  => 'text',
+                  'name'  => 'username',
+                  'id'    => 'username',
+                  'value' => 'username',
+                  'class' => 'form-control',
+                  'placeholder' => 'Username'
+                ];
+                echo form_input($username); 
+              ?>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <?php
-            $name = [
-              'type'  => 'text',
-              'name'  => 'name',
-              'id'    => 'name',
-              'value' => $inputs['name'],
-              'class' => 'form-control',
-              'placeholder' => 'Fullname'
-            ];
-            echo form_input($name); 
-          ?>
-          <div class="input-group-append">
-            <div class="input-group-text">
+            <div class="input-group mb-3">
+              <?php
+                $name = [
+                  'type'  => 'text',
+                  'name'  => 'name',
+                  'id'    => 'name',
+                  'value' => 'name',
+                  'class' => 'form-control',
+                  'placeholder' => 'Fullname'
+                ];
+                echo form_input($name); 
+              ?>
+              <div class="input-group-append">
+              <div class="input-group-text">
               <span class="fas fa-user"></span>
             </div>
           </div>
@@ -77,7 +77,7 @@
               'type'  => 'email',
               'name'  => 'email',
               'id'    => 'email',
-              'value' => $inputs['email'],
+              'value' => 'email',
               'class' => 'form-control',
               'placeholder' => 'your_email@example.com'
             ];
@@ -91,15 +91,15 @@
         </div>
         <div class="input-group mb-3">
           <?php
-            $email = [
+            $password = [
               'type'  => 'password',
               'name'  => 'password',
               'id'    => 'password',
-              'value' => $inputs['password'],
+             // 'value' => 'password',
               'class' => 'form-control',
               'placeholder' => 'Password'
             ];
-            echo form_input($email); 
+            echo form_input($password); 
           ?>
           <div class="input-group-append">
             <div class="input-group-text">
@@ -113,32 +113,32 @@
               'type'  => 'password',
               'name'  => 'confirm_password',
               'id'    => 'confirm_password',
-              'value' => $inputs['confirm_password'],
-              'class' => 'form-control',
-              'placeholder' => 'Konfirmasi Password'
-            ];
-            echo form_input($confirm_password); 
-          ?>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <p class="mb-0">
-              Do you have account? <a href="<?php echo base_url('auth/login'); ?>" class="text-center">Log in</a>
-            </p>
-          </div>
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-          </div>
-        </div>
-        <?php echo form_close(); ?>
-      </div>
-    </div>
-  </div>
+  //'value' => 'confirm_password',
+  'class' => 'form-control',
+  'placeholder' => 'Konfirmasi Password'
+];
+echo form_input($confirm_password); 
+?>
+<div class="input-group-append">
+<div class="input-group-text">
+  <span class="fas fa-lock"></span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-8">
+<p class="mb-0">
+  Do you have account? <a href="<?php echo base_url('auth/login'); ?>" class="text-center">Log in</a>
+</p>
+</div>
+<div class="col-4">
+<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+</div>
+</div>
+<?php echo form_close(); ?>
+</div>
+</div>
+</div>
 <script src="<?php echo base_url('themes/plugins'); ?>/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url('themes/plugins'); ?>/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo base_url('themes/dist'); ?>/js/adminlte.min.js"></script>
